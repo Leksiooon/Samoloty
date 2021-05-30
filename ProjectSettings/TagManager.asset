@@ -6,6 +6,7 @@ TagManager:
   tags:
   - AirPlane
   - Terrain
+  - Barrel
   layers:
   - Default
   - TransparentFX
