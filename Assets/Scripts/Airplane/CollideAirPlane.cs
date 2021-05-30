@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CollideAirPlane : MonoBehaviour
 {
@@ -16,12 +17,12 @@ public class CollideAirPlane : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Barrel"))
         {
-            Destroy(other.gameObject);
-            FlyThroughRing(other);
+            FlyThroughFuel(other);
+            other.SendMessage("HealFuel");
         }
     }
 
-    void FlyThroughRing(Collider barrell)
+    void FlyThroughFuel(Collider barrell)
     {
         source.PlayOneShot(gotFuel);
         BarrelBehavior.CreateNewBarrel(barrell);

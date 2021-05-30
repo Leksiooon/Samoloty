@@ -19,6 +19,6 @@ public class BarrelBehavior : MonoBehaviour
         float randomZ = Random.Range(1, Dimensions.z);
 
         var newPosition = new Vector3(randomX, randomY, randomZ);
-        Instantiate(barrel, newPosition, barrel.transform.rotation);
+        barrel.gameObject.transform.position = newPosition;
     }
 }
