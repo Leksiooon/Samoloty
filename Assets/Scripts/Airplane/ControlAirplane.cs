@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ControlAirplane : MonoBehaviour
 {
@@ -33,10 +34,12 @@ public class ControlAirplane : MonoBehaviour
         float terrainHeightWhereWeAre = (terrain.transform.position - transform.position).y;
         if (terrainHeightWhereWeAre >= 0)
         {
-            transform.position = new Vector3(
-                transform.position.x,
-                terrain.transform.position.y,
-                transform.position.z);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //transform.position = new Vector3(
+            //    transform.position.x,
+            //    terrain.transform.position.y,
+            //    transform.position.z);
+
         }
 
 
