@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CollideAirPlane : MonoBehaviour
@@ -15,11 +16,16 @@ public class CollideAirPlane : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        print("dupa");
         if (other.gameObject.CompareTag("Barrel"))
         {
             FlyThroughFuel(other);
             other.SendMessage("HealFuel");
         }
+        //if (other.gameObject.CompareTag("Terrain"))
+        //{
+        //    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //}
     }
 
     void FlyThroughFuel(Collider barrell)

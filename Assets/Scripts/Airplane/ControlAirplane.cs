@@ -29,21 +29,5 @@ public class ControlAirplane : MonoBehaviour
         {
             Speed = 50.0f;
         }
-
-        // kolizje z terenem
-        float terrainHeightWhereWeAre = (terrain.transform.position - transform.position).y;
-        if (terrainHeightWhereWeAre >= 0)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            //transform.position = new Vector3(
-            //    transform.position.x,
-            //    terrain.transform.position.y,
-            //    transform.position.z);
-
-        }
-
-
-
-
     }
 }

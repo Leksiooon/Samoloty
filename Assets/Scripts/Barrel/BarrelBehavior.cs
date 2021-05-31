@@ -13,7 +13,9 @@ public class BarrelBehavior : MonoBehaviour
     {
         GameObject GameTerrain = GameObject.Find("Terrain");
         Vector3 Dimensions;
-        Dimensions = GameTerrain.GetComponent<Terrain>().terrainData.size;
+        //Dimensions = GameTerrain.GetComponent<Terrain>().terrainData.size;
+        Dimensions = GameTerrain.GetComponent<Collider>().bounds.size;
+        print(Dimensions);
         float randomX = Random.Range(1, Dimensions.x);
         float randomY = Random.Range(1, Dimensions.y/2);
         float randomZ = Random.Range(1, Dimensions.z);
