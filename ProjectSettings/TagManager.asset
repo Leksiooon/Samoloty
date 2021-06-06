@@ -8,6 +8,7 @@ TagManager:
   - Terrain
   - Barrel
   - CurrentFuel
+  - Area
   layers:
   - Default
   - TransparentFX

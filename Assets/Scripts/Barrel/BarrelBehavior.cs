@@ -13,7 +13,7 @@ public class BarrelBehavior : MonoBehaviour
 
     public static void CreateNewBarrel(Collider barrel)
     {
-        GameObject GameTerrain = GameObject.Find("Terrain");
+        GameObject GameTerrain = GameObject.FindGameObjectWithTag("Area");
         Vector3 Dimensions;
         //Dimensions = GameTerrain.GetComponent<Terrain>().terrainData.size;
         Dimensions = GameTerrain.GetComponent<Collider>().bounds.size;
