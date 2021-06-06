@@ -16,16 +16,22 @@ public class CollideAirPlane : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        print("dupa");
         if (other.gameObject.CompareTag("Barrel"))
         {
             FlyThroughFuel(other);
-            other.SendMessage("HealFuel");
+            var fuelValue = other.gameObject.GetComponent<BarrelBehavior>().fuelValue;
+            other.SendMessage("HealFuel",fuelValue);
         }
-        //if (other.gameObject.CompareTag("Terrain"))
-        //{
-        //    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        //}
+        if (other.gameObject.CompareTag("Terrain"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        print("dupa");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void FlyThroughFuel(Collider barrell)

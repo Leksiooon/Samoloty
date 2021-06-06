@@ -12,7 +12,6 @@ public class FuelBar : MonoBehaviour
     private float currentPointFuel;
     public float maxHealth = 200;
     public float damageFuel = 1;
-    public float healFuel = 50;
 
     void Start()
     {
@@ -39,10 +38,10 @@ public class FuelBar : MonoBehaviour
         ratioText.text = (Mathf.Floor(ratio * 100)).ToString() + '%';
     }
 
-    public void HealFuel()
+    public void HealFuel(float fuelValue)
     {
         //Debug.LogError("HEAL FuelBar");
-        currentPointFuel += healFuel;
+        currentPointFuel += fuelValue;
         if (currentPointFuel > maxHealth)
             currentPointFuel = maxHealth;
 

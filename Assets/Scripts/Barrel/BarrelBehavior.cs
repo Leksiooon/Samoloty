@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BarrelBehavior : MonoBehaviour
 {
+    public float fuelValue = 50f;
+
     void Update()
     {
         transform.Rotate(Vector3.up, 2);
