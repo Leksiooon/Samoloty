@@ -33,9 +33,9 @@ public class CollideAirPlane : MonoBehaviour
 
     }
 
-    void FlyThroughFuel(Collider barrell)
+    void FlyThroughFuel(Collider barrel)
     {
         source.PlayOneShot(gotFuel);
-        BarrelBehavior.CreateNewBarrel(barrell);
+        BarrelBehavior.CreateNewBarrel(barrel.GetComponent<BarrelBehavior>());
     }
 }

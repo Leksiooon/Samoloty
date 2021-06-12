@@ -24,10 +24,10 @@ public class ControlAirplane : MonoBehaviour
         transform.Rotate(SensitiveRotationVertical * 0.1f * Input.GetAxis("Vertical"), 0.0f, -Input.GetAxis("Horizontal") * 0.1f * SensitiveRotationHorizontal);
 
         // wp³yw wznoszenia i opadania na prêdkoœæ
-        Speed -= transform.forward.y * Time.deltaTime * 50.0f;
-        if (Speed < 50.0f)
-        {
-            Speed = 50.0f;
-        }
+        //Speed -= transform.forward.y * Time.deltaTime * 50.0f;
+        //if (Speed < 50.0f)
+        //{
+        //    Speed = 50.0f;
+        //}
     }
 }

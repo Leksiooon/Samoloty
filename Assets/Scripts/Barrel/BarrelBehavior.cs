@@ -11,7 +11,7 @@ public class BarrelBehavior : MonoBehaviour
         transform.Rotate(Vector3.up, 2);
     }
 
-    public static void CreateNewBarrel(Collider barrel)
+    public static void CreateNewBarrel(BarrelBehavior barrel)
     {
         GameObject GameTerrain = GameObject.FindGameObjectWithTag("Area");
         var bounds = GameTerrain.GetComponent<Collider>().bounds;
