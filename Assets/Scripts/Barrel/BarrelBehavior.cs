@@ -14,15 +14,18 @@ public class BarrelBehavior : MonoBehaviour
     public static void CreateNewBarrel(Collider barrel)
     {
         GameObject GameTerrain = GameObject.FindGameObjectWithTag("Area");
-        Vector3 Dimensions;
-        //Dimensions = GameTerrain.GetComponent<Terrain>().terrainData.size;
-        Dimensions = GameTerrain.GetComponent<Collider>().bounds.size;
-        print(Dimensions);
-        float randomX = Random.Range(1, Dimensions.x);
-        float randomY = Random.Range(1, Dimensions.y/2);
-        float randomZ = Random.Range(1, Dimensions.z);
+        var bounds = GameTerrain.GetComponent<Collider>().bounds;
 
-        var newPosition = new Vector3(randomX, randomY, randomZ);
+        var newPosition = RandomPointInBounds(bounds);
         barrel.gameObject.transform.position = newPosition;
+    }
+
+    public static Vector3 RandomPointInBounds(Bounds bounds)
+    {
+        return new Vector3(
+            Random.Range(bounds.min.x, bounds.max.x),
+            Random.Range(bounds.min.y, bounds.max.y),
+            Random.Range(bounds.min.z, bounds.max.z)
+        );
     }
 }

@@ -9,10 +9,10 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0))
-        {
+        //if (Input.GetKey(KeyCode.Mouse0))
+        //{
             Shoot();
-        }
+        //}
     }
 
     void Shoot()
@@ -20,12 +20,12 @@ public class Gun : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, range))
         {
-            if(hit.collider.gameObject.CompareTag("Barrel"))
+            if (hit.collider.gameObject.CompareTag("Barrel"))
             {
-                Debug.Log(hit.transform.name);
+                Debug.Log(hit.transform.name +" " +transform.tag);
             }
 
-            
+
         }
     }
 }

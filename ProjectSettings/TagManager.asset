@@ -9,6 +9,8 @@ TagManager:
   - Barrel
   - CurrentFuel
   - Area
+  - Gun1
+  - Gun2
   layers:
   - Default
   - TransparentFX
