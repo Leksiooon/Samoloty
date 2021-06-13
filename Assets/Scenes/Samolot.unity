@@ -841,6 +841,7 @@ MonoBehaviour:
   damage: 2
   range: 1000
   muzzleFlash: {fileID: 543213808}
+  impactObject: {fileID: 100002, guid: 3b1513bcb86426b4795879be6a128ed7, type: 3}
   audioClip: {fileID: 8300000, guid: 8e0d48406c1f0c348a74eb32db1e34a5, type: 3}
 --- !u!82 &885435664
 AudioSource:
@@ -963,7 +964,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1057995260}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1850, y: 100, z: 2778}
@@ -1409,6 +1410,7 @@ MonoBehaviour:
   damage: 2
   range: 1000
   muzzleFlash: {fileID: 1380790266}
+  impactObject: {fileID: 100002, guid: fc7f8379080d0a844ad699b91bfd56f0, type: 3}
   audioClip: {fileID: 0}
 --- !u!1 &1275044467
 GameObject:
@@ -1833,7 +1835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad731775739b8974cb495b9e70f12577, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 10
+  Speed: 40
   SensitiveRotationVertical: 10
   SensitiveRotationHorizontal: 10
 --- !u!136 &1612334008

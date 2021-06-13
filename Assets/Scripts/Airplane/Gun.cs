@@ -8,6 +8,7 @@ public class Gun : MonoBehaviour
     public float range = 100f;
 
     public ParticleSystem muzzleFlash;
+    public GameObject impactObject;
 
     public AudioClip audioClip;
     AudioSource audioSource;
@@ -37,13 +38,13 @@ public class Gun : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.Mouse0))
         {
-            Shoot();
+            Invoke("Shoot", 0.2f);
         }
         else if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             muzzleFlash.Stop();
             if (audioSource != null)
-                StartCoroutine(AudioFadeOut.FadeOut(audioSource, 0.08f));
+                StartCoroutine(AudioFadeOut.FadeOut(audioSource, 0.05f));
         }
     }
 
@@ -60,6 +61,9 @@ public class Gun : MonoBehaviour
                 enemy.TakeDamage(damage);
             }
         }
+
+        GameObject impactGO = Instantiate(impactObject, hit.point, Quaternion.LookRotation(hit.normal));
+        Destroy(impactGO, 1);
     }
 }
 
