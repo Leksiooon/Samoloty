@@ -9,30 +9,20 @@ public class Gun : MonoBehaviour
 
     public ParticleSystem muzzleFlash;
 
-    public AudioClip audioClipStart;
-    public AudioClip audioClipEnd;
-
-    AudioSource audioSourceStart;
-    AudioSource audioSourceEnd;
+    public AudioClip audioClip;
+    AudioSource audioSource;
 
     private void Start()
     {
-
-        Component[] components = GetComponents<AudioSource>();
-        if (components.Length == 2)
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource != null)
         {
-            audioSourceStart = (AudioSource)components[0];
-            audioSourceStart.playOnAwake = false;
-            audioSourceStart.loop = true;
+            audioSource.playOnAwake = false;
+            audioSource.loop = true;
 
-            audioSourceEnd = (AudioSource)components[1];
-            audioSourceEnd.playOnAwake = false;
-            audioSourceEnd.loop = false;
-
-            if (audioClipStart != null && audioClipEnd != null)
+            if (audioClip != null)
             {
-                audioSourceStart.clip = audioClipStart;
-                audioSourceEnd.clip = audioClipEnd;
+                audioSource.clip = audioClip;
             }
         }
     }
@@ -42,8 +32,8 @@ public class Gun : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             muzzleFlash.Play();
-            if (audioSourceStart != null)
-                audioSourceStart.Play();
+            if (audioSource != null)
+                audioSource.Play();
         }
         else if (Input.GetKey(KeyCode.Mouse0))
         {
@@ -51,20 +41,14 @@ public class Gun : MonoBehaviour
         }
         else if (Input.GetKeyUp(KeyCode.Mouse0))
         {
-            if (audioSourceStart != null)
-            {
-                audioSourceStart.Stop();
-                audioSourceEnd.PlayOneShot(audioClipEnd);
-
-            }
             muzzleFlash.Stop();
+            if (audioSource != null)
+                StartCoroutine(AudioFadeOut.FadeOut(audioSource, 0.08f));
         }
     }
 
     void Shoot()
     {
-
-
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, range))
         {
