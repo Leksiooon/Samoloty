@@ -29,6 +29,8 @@ public class Gun : MonoBehaviour
                 audioSource.clip = audioClip;
             }
         }
+
+        freq = transform.parent.gameObject.GetComponent<AirPlane>().freqShoot;
     }
 
     void Update()
@@ -56,11 +58,9 @@ public class Gun : MonoBehaviour
 
     IEnumerator Shoot()
     {
-        print("shoot");
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, range))
         {
-            print("trafiony");
             EnemyBehavior enemy = hit.transform.GetComponent<EnemyBehavior>();
             if (enemy != null)
             {

@@ -492,7 +492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19800004, guid: 7e9c50938e32351438a7df9ccad2f2a5, type: 3}
       propertyPath: looping
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19800004, guid: 7e9c50938e32351438a7df9ccad2f2a5, type: 3}
       propertyPath: lengthInSec
@@ -840,7 +840,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 2
   range: 1000
-  freq: 0.2
   muzzleFlash: {fileID: 543213808}
   impactObject: {fileID: 100002, guid: 3b1513bcb86426b4795879be6a128ed7, type: 3}
   audioClip: {fileID: 8300000, guid: 8e0d48406c1f0c348a74eb32db1e34a5, type: 3}
@@ -858,7 +857,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1403,14 +1402,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1263153433}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28c84d110eaf0574898bee026db6efdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 2
   range: 1000
-  freq: 2
   muzzleFlash: {fileID: 1380790266}
   impactObject: {fileID: 100002, guid: 3b1513bcb86426b4795879be6a128ed7, type: 3}
   audioClip: {fileID: 0}
@@ -1840,6 +1838,19 @@ MonoBehaviour:
   Speed: 40
   SensitiveRotationVertical: 10
   SensitiveRotationHorizontal: 10
+--- !u!114 &1612334007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612334005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 095bda7530a52f645ad0493993f82194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  freqShoot: 0.5
 --- !u!136 &1612334008
 CapsuleCollider:
   m_ObjectHideFlags: 0
