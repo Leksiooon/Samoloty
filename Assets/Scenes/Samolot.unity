@@ -1410,7 +1410,7 @@ MonoBehaviour:
   damage: 2
   range: 1000
   muzzleFlash: {fileID: 1380790266}
-  impactObject: {fileID: 100002, guid: fc7f8379080d0a844ad699b91bfd56f0, type: 3}
+  impactObject: {fileID: 100002, guid: 3b1513bcb86426b4795879be6a128ed7, type: 3}
   audioClip: {fileID: 0}
 --- !u!1 &1275044467
 GameObject:
