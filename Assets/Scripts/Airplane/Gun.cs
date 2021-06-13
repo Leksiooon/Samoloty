@@ -6,6 +6,9 @@ public class Gun : MonoBehaviour
 {
     public float damage = 10f;
     public float range = 100f;
+    public float freq;
+
+    bool canPlayerFire = true;
 
     public ParticleSystem muzzleFlash;
     public GameObject impactObject;
@@ -38,7 +41,10 @@ public class Gun : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.Mouse0))
         {
-            Invoke("Shoot", 0.2f);
+            if (canPlayerFire)
+            {
+                StartCoroutine(Shoot());
+            }
         }
         else if (Input.GetKeyUp(KeyCode.Mouse0))
         {
@@ -48,11 +54,13 @@ public class Gun : MonoBehaviour
         }
     }
 
-    void Shoot()
+    IEnumerator Shoot()
     {
+        print("shoot");
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, range))
         {
+            print("trafiony");
             EnemyBehavior enemy = hit.transform.GetComponent<EnemyBehavior>();
             if (enemy != null)
             {
@@ -61,7 +69,10 @@ public class Gun : MonoBehaviour
         }
 
         GameObject impactGO = Instantiate(impactObject, hit.point, Quaternion.LookRotation(hit.normal));
-        Destroy(impactGO, 1);
+        canPlayerFire = false;
+        yield return new WaitForSeconds(freq);
+        canPlayerFire = true;
+        Destroy(impactGO);
     }
 }
 
