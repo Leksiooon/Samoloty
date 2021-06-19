@@ -6,7 +6,7 @@ public class Gun : MonoBehaviour
 {
     public float damage = 10f;
     public float range = 100f;
-    public float freq;
+    float freq;
 
     bool canPlayerFire = true;
 
@@ -22,7 +22,7 @@ public class Gun : MonoBehaviour
         if (audioSource != null)
         {
             audioSource.playOnAwake = false;
-            audioSource.loop = true;
+            //audioSource.loop = true;
 
             if (audioClip != null)
             {
@@ -35,24 +35,22 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            muzzleFlash.Play();
-            if (audioSource != null)
-                audioSource.Play();
-        }
-        else if (Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKey(KeyCode.Mouse0))
         {
             if (canPlayerFire)
             {
+                if (!muzzleFlash.isPlaying)
+                    muzzleFlash.Play();
+
+                if (audioSource != null)
+                    audioSource.Play();
+
                 StartCoroutine(Shoot());
             }
         }
-        else if (Input.GetKeyUp(KeyCode.Mouse0))
+        else if (Input.GetKeyUp(KeyCode.Mouse0) && audioSource != null)
         {
-            muzzleFlash.Stop();
-            if (audioSource != null)
-                StartCoroutine(AudioFadeOut.FadeOut(audioSource, 0.05f));
+            StartCoroutine(AudioFadeOut.FadeOut(audioSource, 0.05f));
         }
     }
 
