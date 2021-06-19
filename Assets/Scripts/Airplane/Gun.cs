@@ -12,6 +12,7 @@ public class Gun : MonoBehaviour
 
     public ParticleSystem muzzleFlash;
     public GameObject impactObject;
+    public GameObject bulletImpactObject;
 
     public AudioClip audioClip;
     AudioSource audioSource;
@@ -67,10 +68,14 @@ public class Gun : MonoBehaviour
         }
 
         GameObject impactGO = Instantiate(impactObject, hit.point, Quaternion.LookRotation(hit.normal));
+        GameObject bulletImpactGO = Instantiate(bulletImpactObject, hit.point, Quaternion.LookRotation(hit.normal));
+        Destroy(impactGO, 1.5f);
+        Destroy(bulletImpactGO, 4f);
+
         canPlayerFire = false;
         yield return new WaitForSeconds(freq);
         canPlayerFire = true;
-        Destroy(impactGO);
+
     }
 }
 
