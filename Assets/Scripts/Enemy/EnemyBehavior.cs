@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyBehavior : MonoBehaviour
 {
     public float health = 50f;
+    public GameObject effectsDestroy;
 
     public void TakeDamage(float amount)
     {
@@ -17,8 +18,11 @@ public class EnemyBehavior : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject);
-
+        GameObject effects = Instantiate(effectsDestroy, transform.position, Quaternion.LookRotation(Vector3.up));
+        effects.GetComponent<Effects>().Play();
+        
+        Destroy(gameObject,20f);
+        Destroy(effects,20f);
     }
 
 }

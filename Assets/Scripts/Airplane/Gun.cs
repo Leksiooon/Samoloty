@@ -21,15 +21,11 @@ public class Gun : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        if (audioSource != null)
+        if (audioSource != null && audioClip != null)
         {
             audioSource.playOnAwake = false;
-            //audioSource.loop = true;
-
-            if (audioClip != null)
-            {
-                audioSource.clip = audioClip;
-            }
+            audioSource.loop = false;
+            audioSource.clip = audioClip;
         }
 
         range = transform.parent.gameObject.GetComponent<AirPlane>().range;
@@ -82,7 +78,6 @@ public class Gun : MonoBehaviour
         canPlayerFire = false;
         yield return new WaitForSeconds(freq);
         canPlayerFire = true;
-
     }
 }
 
