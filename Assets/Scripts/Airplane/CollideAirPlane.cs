@@ -26,7 +26,7 @@ public class CollideAirPlane : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Terrain"))
+        if (collision.gameObject.CompareTag("Terrain") || collision.gameObject.CompareTag("Tower"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }

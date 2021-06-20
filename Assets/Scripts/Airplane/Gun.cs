@@ -62,7 +62,7 @@ public class Gun : MonoBehaviour
 
         if (Physics.Raycast(transform.position, spreadForward, out hit, range))
         {
-            if (!hit.collider.CompareTag("Area") || !hit.collider.CompareTag("Barrel"))
+            if (!hit.collider.CompareTag("Area") && !hit.collider.CompareTag("Barrel"))
             {
                 EnemyBehavior enemy = hit.transform.GetComponent<EnemyBehavior>();
                 if (enemy != null)

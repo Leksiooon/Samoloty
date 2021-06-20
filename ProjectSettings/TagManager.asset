@@ -11,6 +11,8 @@ TagManager:
   - Area
   - Gun1
   - Gun2
+  - FxTemporaire
+  - Tower
   layers:
   - Default
   - TransparentFX
