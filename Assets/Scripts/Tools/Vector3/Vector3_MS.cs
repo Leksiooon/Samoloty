@@ -13,4 +13,13 @@ public class Vector3_MS : MonoBehaviour
 
         return tmp;
     }
+
+    public static Vector3 spreadVectorXY(Vector3 seedVector, float range)
+    {
+        Vector3 vector3 = seedVector;
+        vector3.x += Random.Range(-range, range);
+        vector3.y += Random.Range(-range, range);
+
+        return vector3;
+    }
 }

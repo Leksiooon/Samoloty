@@ -7,6 +7,7 @@ public class Gun : MonoBehaviour
     float damage;
     float range;
     float freq;
+    float spreadFactor;
 
     bool canPlayerFire = true;
 
@@ -34,6 +35,7 @@ public class Gun : MonoBehaviour
         range = transform.parent.gameObject.GetComponent<AirPlane>().range;
         damage = transform.parent.gameObject.GetComponent<AirPlane>().damage;
         freq = transform.parent.gameObject.GetComponent<AirPlane>().freqShoot;
+        spreadFactor = transform.parent.gameObject.GetComponent<AirPlane>().spreadFactor;
     }
 
     void Update()
@@ -60,20 +62,18 @@ public class Gun : MonoBehaviour
     IEnumerator Shoot()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, range))
+        Vector3 spreadForward = Vector3_MS.spreadVectorXY(transform.forward, spreadFactor);
+
+        if (Physics.Raycast(transform.position, spreadForward, out hit, range))
         {
             if (!hit.collider.CompareTag("Area"))
             {
-                print("normal: " + hit.normal);
-                print("point: " + hit.point);
                 EnemyBehavior enemy = hit.transform.GetComponent<EnemyBehavior>();
                 if (enemy != null)
-                {
                     enemy.TakeDamage(damage);
-                }
 
                 GameObject impactGO = Instantiate(impactObject, hit.point, Quaternion.LookRotation(hit.normal));
-                GameObject bulletImpactGO = Instantiate(bulletImpactObject, hit.point, Quaternion.LookRotation(Vector3_MS.ABS(hit.normal)));
+                GameObject bulletImpactGO = Instantiate(bulletImpactObject, hit.point, Quaternion.LookRotation(hit.normal));
                 Destroy(impactGO, 1.5f);
                 Destroy(bulletImpactGO, 4f);
             }
