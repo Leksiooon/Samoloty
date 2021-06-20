@@ -1849,6 +1849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   freqShoot: 0.1
+  spreadFactor: 0.03
   damage: 10
   range: 1000
 --- !u!136 &1612334008

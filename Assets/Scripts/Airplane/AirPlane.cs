@@ -5,7 +5,7 @@ using UnityEngine;
 public class AirPlane : MonoBehaviour
 {
     public float freqShoot = 0.1f;
-    public float spreadFactor = 0.1f;
+    public float spreadFactor = 0.03f;
 
     public float damage = 10f;
     public float range = 1000f;
