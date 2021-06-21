@@ -13,6 +13,7 @@ TagManager:
   - Gun2
   - FxTemporaire
   - Tower
+  - Enemy
   layers:
   - Default
   - TransparentFX
