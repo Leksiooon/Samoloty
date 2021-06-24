@@ -6,19 +6,21 @@ using UnityEngine.UI;
 
 public class EnemyBehavior : MonoBehaviour
 {
+    [Header("¯ycie")]
     public float health = 50f;
-    public GameObject effectsDestroy;
 
-    Vector3 center;
+    [Header("Efekty koñcowe")]
+    GameObject effects;
+    public GameObject seedEffectsDestroy;
+    private Effects myDestroyEffects;
+    public Effects myDestroyEffectsProp { get => myDestroyEffects; }
+
     bool destroy = false;
-
-    public string textValue;
-    public Text textElement;
 
     private void Start()
     {
-        center = GetComponent<Renderer>().bounds.center;
-        textElement.text = "";
+        effects = Instantiate(seedEffectsDestroy, Vector3.zero, Quaternion.LookRotation(Vector3.up));
+        myDestroyEffects = effects.GetComponent<Effects>();
     }
 
     public void TakeDamage(float amount)
@@ -33,14 +35,8 @@ public class EnemyBehavior : MonoBehaviour
 
     void Die()
     {
-        GameObject effects = Instantiate(effectsDestroy, center, Quaternion.LookRotation(Vector3.up));
-        effects.GetComponent<Effects>().Play();
-
-        var listEnemy = GameObject.FindGameObjectsWithTag("Enemy");
-        if (listEnemy.Length == 1)
-        {
-            textElement.text = textValue;
-        }
+        effects.transform.position = GetComponent<Renderer>().bounds.center;
+        myDestroyEffects.Play();
 
         Destroy(gameObject, 20f);
         Destroy(effects, 20f);

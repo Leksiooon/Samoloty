@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Effects : MonoBehaviour
@@ -22,6 +20,8 @@ public class Effects : MonoBehaviour
             audioSource.clip = audioClip;
         }
     }
+
+    public bool isPlaying { get => explosionPS.isPlaying; }
 
     public void Play()
     {

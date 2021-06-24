@@ -585,9 +585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 200
-  effectsDestroy: {fileID: 165226578}
-  textValue: Winner
-  textElement: {fileID: 111423603}
+  seedEffectsDestroy: {fileID: 165226578}
 --- !u!65 &169041512
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -708,9 +706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 200
-  effectsDestroy: {fileID: 165226578}
-  textValue: Winner
-  textElement: {fileID: 111423603}
+  seedEffectsDestroy: {fileID: 165226578}
 --- !u!65 &227844865
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1299,9 +1295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 200
-  effectsDestroy: {fileID: 165226578}
-  textValue: Winner
-  textElement: {fileID: 111423603}
+  seedEffectsDestroy: {fileID: 165226578}
 --- !u!1001 &752297750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1416,7 +1410,7 @@ MonoBehaviour:
   currentHealthbar: {fileID: 1356777574}
   ratioText: {fileID: 336454347}
   maxHealth: 200
-  damageFuel: 1
+  damageFuel: 1.5
 --- !u!1 &885435661
 GameObject:
   m_ObjectHideFlags: 0
@@ -1573,6 +1567,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: T90LP Desert (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1388735818753722, guid: 7e65c1f943c4ccf40ae1d463bc024c17, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 4873584501471496, guid: 7e65c1f943c4ccf40ae1d463bc024c17, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -1649,9 +1647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  effectsDestroy: {fileID: 165226578}
-  textValue: Winner
-  textElement: {fileID: 111423603}
+  seedEffectsDestroy: {fileID: 165226578}
 --- !u!65 &899582558
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2013,9 +2009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  effectsDestroy: {fileID: 165226578}
-  textValue: Winner
-  textElement: {fileID: 111423603}
+  seedEffectsDestroy: {fileID: 165226578}
 --- !u!1 &1164689956
 GameObject:
   m_ObjectHideFlags: 0
@@ -2127,11 +2121,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1164689956}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bac05f3c6b7377543969a419d93c4863, type: 3}
+  m_Script: {fileID: 11500000, guid: 3513759b4f748194eb74e20ed06f4144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textValue: 
-  textElement: {fileID: 0}
+  textValue: Winner
+  textElement: {fileID: 111423603}
 --- !u!1 &1197359138 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100012, guid: 3364c97de68d3a147af572d1c71c6455, type: 3}
@@ -2845,9 +2839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  effectsDestroy: {fileID: 165226578}
-  textValue: Winner
-  textElement: {fileID: 111423603}
+  seedEffectsDestroy: {fileID: 165226578}
 --- !u!65 &1501569232
 BoxCollider:
   m_ObjectHideFlags: 0
